@@ -16,11 +16,11 @@ fn main() -> anyhow::Result<()> {
     let pattern: String = args[1].clone();
     let path = args[2].clone();
 
-    handle_path(&path, &pattern)?;
+    process(&path, &pattern)?;
     Ok(())
 }
 
-fn handle_path(path: &str, pattern: &str) -> anyhow::Result<()> {
+fn process(path: &str, pattern: &str) -> anyhow::Result<()> {
     for entry in (glob(path)?).flatten() {
         if entry.is_file() {
             grep_file(pattern, &entry.to_string_lossy())?;
