@@ -63,7 +63,7 @@ fn grep_file(pattern: &str, filename: &str) -> anyhow::Result<()> {
             let mut line = line.clone();
             let colored_pattern = &line[start..end].red().to_string();
             line.replace_range(start..end, colored_pattern);
-            println!("    {}:{} {}", i + 1, start, line.trim());
+            println!("    {}:{} {}", i + 1, start, line);
         }
     }
     Ok(())
