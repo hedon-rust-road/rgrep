@@ -55,7 +55,7 @@ fn grep_file(pattern: &str, filename: &str) -> anyhow::Result<()> {
         let founds = re.find_iter(&line);
         for found in founds {
             if !printed {
-                println!("{}", filename);
+                println!("{}", filename.purple());
                 printed = true;
             }
             let start = found.start();
